@@ -3,9 +3,9 @@
 import React, { useRef } from 'react';
 import { Text, Transforms } from 'slate';
 import { useSlate } from 'slate-react';
-import BlockMenuOrg from '../../../components/organisms/BlockMenuOrg';
+import BlockMenu from '../../../components/organisms/BlockMenu';
 
-const BlockMenu: React.FC<{}> = () => {
+const BlockMenuEditor: React.FC<{}> = () => {
   const ref = useRef<any>();
   const editor = useSlate();
 
@@ -83,7 +83,7 @@ const BlockMenu: React.FC<{}> = () => {
     },
   ];
 
-  return <BlockMenuOrg ref={ref} items={items} />;
+  return <BlockMenu ref={ref} items={items} />;
 };
 
-export default BlockMenu;
+export default BlockMenuEditor;

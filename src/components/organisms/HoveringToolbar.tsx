@@ -13,7 +13,7 @@ type HoveringToolbarProps = {
   onRender: (ref: React.MutableRefObject<any>) => void;
 };
 
-const HoveringToolbarOrg = React.forwardRef<
+const HoveringToolbar = React.forwardRef<
   MutableRefObject<any>,
   HoveringToolbarProps
 >((props, ref) => {
@@ -53,4 +53,4 @@ const HoveringToolbarOrg = React.forwardRef<
   );
 });
 
-export default HoveringToolbarOrg;
+export default HoveringToolbar;

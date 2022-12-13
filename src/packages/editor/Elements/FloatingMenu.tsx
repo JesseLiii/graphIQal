@@ -1,12 +1,12 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { Text, Transforms, Range, Editor, PathRef } from 'slate';
-import { useSlate, useFocused, ReactEditor } from 'slate-react';
-import BlockMenu from '../BlockMenu/BlockMenu';
+import React, { useEffect, useRef, useState } from 'react';
+import { Editor, Range } from 'slate';
+import { ReactEditor, useFocused, useSlate } from 'slate-react';
+import BlockMenu from '../BlockMenu/BlockMenuEditor';
 
 const FloatingMenu: React.FC<{}> = () => {
   const ref = useRef<any>();
   const editor = useSlate();
-  const inFocus = useFocused();
+  //   const inFocus = useFocused();
   const [isOpen, setIsOpen] = useState(true);
   const left = useRef(0);
   let isCommandMenu = false;

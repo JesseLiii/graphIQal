@@ -1,17 +1,11 @@
 // make toolbar a general component that just takes in children and stuff
 
-import React, {
-  useRef,
-  useEffect,
-  EffectCallback,
-  MutableRefObject,
-} from 'react';
-import { Text, Transforms, Range, Editor } from 'slate';
-import { useSlate, useFocused } from 'slate-react';
-import BlockMenu from '../BlockMenu/BlockMenu';
-import HoveringToolbarOrg from '../../../components/organisms/HoveringToolbarOrg';
+import React, { MutableRefObject, useRef } from 'react';
+import { Editor, Range, Text, Transforms } from 'slate';
+import { useFocused, useSlate } from 'slate-react';
+import HoveringToolbar from '../../../components/organisms/HoveringToolbar';
 
-const HoveringToolbar: React.FC<{}> = () => {
+const HoveringToolbarEditor: React.FC<{}> = () => {
   const ref = useRef<any>();
   const editor = useSlate();
   const inFocus = useFocused();
@@ -125,7 +119,7 @@ const HoveringToolbar: React.FC<{}> = () => {
 
   return (
     <div ref={ref}>
-      <HoveringToolbarOrg
+      <HoveringToolbar
         ref={ref}
         items={items}
         onRender={(ref: MutableRefObject<any>) => onRender(ref)}
@@ -138,4 +132,4 @@ const HoveringToolbar: React.FC<{}> = () => {
   );
 };
 
-export default HoveringToolbar;
+export default HoveringToolbarEditor;

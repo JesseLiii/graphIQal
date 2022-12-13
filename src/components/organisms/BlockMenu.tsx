@@ -1,4 +1,4 @@
-import React, { MutableRefObject, useEffect, useRef } from 'react';
+import React, { MutableRefObject } from 'react';
 import ToolbarButton from '../molecules/ToolbarButton';
 import './BlockMenu.css';
 
@@ -12,7 +12,7 @@ type BlockMenuProps = {
   items: ToolbarButtonProps[];
 };
 
-const BlockMenuOrg = React.forwardRef<MutableRefObject<any>, BlockMenuProps>(
+const BlockMenu = React.forwardRef<MutableRefObject<any>, BlockMenuProps>(
   (props, ref) => {
     const { items } = props;
 
@@ -27,4 +27,4 @@ const BlockMenuOrg = React.forwardRef<MutableRefObject<any>, BlockMenuProps>(
   }
 );
 
-export default BlockMenuOrg;
+export default BlockMenu;

@@ -1,16 +1,15 @@
-import React, { useCallback, useState, useRef } from 'react';
+import React, { useCallback, useState } from 'react';
 
-import { createEditor, Range, Text, Transforms, Editor } from 'slate';
+import { createEditor, Range } from 'slate';
 import { Editable, Slate, withReact } from 'slate-react';
 
 // TypeScript users only add this code
 import { BaseEditor } from 'slate';
 import { ReactEditor } from 'slate-react';
-import BlockMenu from './BlockMenu/BlockMenu';
+import BlockMenu from './BlockMenu/BlockMenuEditor';
 import EditorCommands from './EditorCommands';
 import { CodeElement, DefaultElement, Leaf } from './Elements/Elements';
-import HoveringToolbar from './Elements/HoveringToolbar';
-import FloatingMenu from './Elements/FloatingMenu';
+import HoveringToolbar from './Elements/HoveringToolbarEditor';
 
 type CustomElement = {
   format: 'paragraph' | 'code';
@@ -48,10 +47,10 @@ const initialValue: CustomElement[] = [
 
 const EditorComponent: React.FC = () => {
   const [editor] = useState(() => withReact(createEditor()));
-  const [isOpen, setIsOpen] = useState(false);
-  const commandTextRef = useRef<any>('');
-  const closeMenu = false;
-  const menuListRef = useRef<any>(null);
+  // const [isOpen, setIsOpen] = useState(false);
+  // const commandTextRef = useRef<any>('');
+  // const closeMenu = false;
+  // const menuListRef = useRef<any>(null);
   console.log(editor.selection);
 
   // eslint-disable-next-line no-empty
@@ -109,91 +108,6 @@ const EditorComponent: React.FC = () => {
     return <Leaf {...props} />;
   }, []);
 
-  const [opacity, setOpacity] = useState<'0%' | '100%'>('0%');
-  const showMenu = () => {
-    setOpacity('100%');
-    // editor.insertNode()
-  };
-
-  const items = [
-    {
-      title: 'text',
-      className: 'block_item',
-      onPress: () => {
-        Transforms.setNodes(
-          editor,
-          { text_type: 'text' },
-          // Apply it to text nodes, and split the text node up if the
-          // selection is overlapping only part of it.
-          {
-            match: (n) => Text.isText(n),
-          }
-        );
-      },
-    },
-    {
-      title: 'Header 1',
-      className: 'block_item',
-      onPress: () => {
-        Transforms.setNodes(
-          editor,
-          { text_type: 'h1' },
-          // Apply it to text nodes, and split the text node up if the
-          // selection is overlapping only part of it.
-          {
-            match: (n) => Text.isText(n),
-          }
-        );
-      },
-    },
-    {
-      title: 'Header 2',
-      className: 'block_item',
-      onPress: () => {
-        Transforms.setNodes(
-          editor,
-          { text_type: 'h2' },
-          // Apply it to text nodes, and split the text node up if the
-          // selection is overlapping only part of it.
-          {
-            match: (n) => Text.isText(n),
-          }
-        );
-      },
-    },
-    {
-      title: 'Header 3',
-      className: 'block_item',
-      onPress: () => {
-        Transforms.setNodes(
-          editor,
-          { text_type: 'h3' },
-          // Apply it to text nodes, and split the text node up if the
-          // selection is overlapping only part of it.
-          {
-            match: (n) => Text.isText(n),
-          }
-        );
-      },
-    },
-    {
-      title: 'bold',
-      className: 'block_item',
-      onPress: () => {
-        Transforms.setNodes(
-          editor,
-          { bold: true },
-          // Apply it to text nodes, and split the text node up if the
-          // selection is overlapping only part of it.
-          {
-            match: (n) => Text.isText(n),
-            split: true,
-          }
-        );
-      },
-    },
-  ];
-
   return (
     <>
       <Slate editor={editor} value={initialValue}>
@@ -227,11 +141,6 @@ const EditorComponent: React.FC = () => {
                   event.preventDefault();
                   editor.insertText('and');
                   break;
-                case '/':
-                  showMenu();
-                  break;
-                default:
-                  setOpacity('0%');
               }
             } else {
               switch (event.key) {
