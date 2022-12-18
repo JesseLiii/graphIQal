@@ -12,17 +12,7 @@ module.exports = {
       lg: '976px',
       xl: '1440px',
     },
-    colors: {
-      blue: '#1fb6ff',
-      purple: '#7e5bef',
-      pink: '#ff49db',
-      orange: '#ff7849',
-      green: '#13ce66',
-      yellow: '#ffc82c',
-      'gray-dark': '#273444',
-      gray: '#8492a6',
-      'gray-light': '#d3dce6',
-    },
+
     fontFamily: {
       sans: ['Graphik', 'sans-serif'],
       serif: ['Merriweather', 'serif'],
@@ -38,6 +28,24 @@ module.exports = {
       fontSize: {
         small: '10px',
         large: '20px',
+      },
+      colors: {
+        base_black: '#242424',
+        base_white: '#FCFAF4',
+        node: '#8DD39C',
+        selected_white: '#FFF9E9',
+        connection: '#4362B1',
+        blue: '4362B1',
+      },
+      fontFamily: {
+        code: [
+          'source-code-pro',
+          'Menlo',
+          'Monaco',
+          'Consolas',
+          '"Courier New"',
+          'monospace',
+        ],
       },
     },
   },
