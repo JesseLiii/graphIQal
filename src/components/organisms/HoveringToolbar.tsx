@@ -26,7 +26,13 @@ const HoveringToolbar = React.forwardRef<
     return items.map((item, i) => {
       const { buttonText, icon, onPress } = item;
       const it = { buttonText, icon, onPress };
-      return <ToolbarButton key={i} className='menu_item' item={it} />;
+      return (
+        <ToolbarButton
+          key={i}
+          className='menu_item first:rounded-l-text_box last:rounded-r-text_box'
+          item={it}
+        />
+      );
     });
   };
   return (

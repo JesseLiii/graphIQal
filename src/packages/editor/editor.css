@@ -3,19 +3,17 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @layer components { */
-
 .h1 {
-  font-weight: bold !important;
-  font-size: 2rem;
+  @apply font-bold !important;
+  @apply text-header_1;
 }
 
 .h2 {
-  font-weight: bold !important;
-  font-size: 1.8rem;
+  @apply font-bold !important;
+  @apply text-header_2;
 }
 
 .h3 {
-  font-weight: bold !important;
-  font-size: 1.5rem;
+  @apply font-bold !important;
+  @apply text-header_3;
 }

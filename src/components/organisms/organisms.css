@@ -5,17 +5,11 @@
 
 @layer components {
   .menu {
-    border-radius: 5px;
+    @apply rounded-text_box;
     @apply border-base_black;
-    border-width: 1px;
-    border-style: solid;
+    @apply rounded-text_box;
     width: fit-content;
     @apply flex;
     @apply flex-row;
-  }
-
-  .menu_item + .menu_item {
-    @apply border-base_black;
-    border-style: solid;
   }
 }
