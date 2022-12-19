@@ -1,33 +1,21 @@
-import React, { ReactNode } from 'react';
-import { FormatBold } from '@styled-icons/material/FormatBold';
-import { FormatItalic } from '@styled-icons/material/FormatItalic';
-import { FormatUnderlined } from '@styled-icons/material/FormatUnderlined';
 import { TippyProps } from '@tippyjs/react';
 import {
-  BalloonToolbar,
-  getPluginType,
-  MARK_BOLD,
-  MARK_ITALIC,
-  MARK_UNDERLINE,
-  MarkToolbarButton,
   Combobox,
-  insertNode,
   ELEMENT_H1,
-  insertNodes,
   ELEMENT_H2,
   ELEMENT_H3,
-  deleteBackward,
-  deleteText,
-  deleteFragment,
+  getPluginType,
+  insertNodes,
 } from '@udecode/plate';
+import { ReactNode } from 'react';
+import { Transforms } from 'slate';
+import BlockMenu from '../../../components/organisms/BlockMenu';
 import {
   MyH1Element,
   MyH2Element,
   MyH3Element,
   useMyPlateEditorRef,
 } from '../plateTypes';
-import BlockMenu from '../../../components/organisms/BlockMenu';
-import { Transforms } from 'slate';
 
 export const markTooltip: TippyProps = {
   arrow: true,

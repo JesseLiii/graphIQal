@@ -17,3 +17,11 @@
   @apply font-bold !important;
   @apply text-header_3;
 }
+
+.text_box {
+  @apply border-dashed;
+  @apply border-base_black;
+  border-width: calc(theme(spacing.1) * 0.25);
+  padding: theme(spacing.1);
+  margin-bottom: theme(spacing.1);
+}

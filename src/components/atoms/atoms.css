@@ -8,4 +8,13 @@
     @apply text-header_3;
     @apply text-base_white;
   }
+
+  .handle {
+    @apply bg-connection;
+    @apply w-3;
+    @apply h-3;
+    @apply inline-block;
+    @apply mr-1;
+    cursor: 'move';
+  }
 }

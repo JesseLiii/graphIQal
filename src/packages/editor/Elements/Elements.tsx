@@ -1,9 +1,8 @@
 import { createPlateUI, ELEMENT_H1 } from '@udecode/plate';
-import { CSSProperties } from 'react';
 import { useDrag } from 'react-dnd';
-import '../editor.css';
 import Handle from '../../../components/atoms/Handle';
 import { ItemTypes } from '../../dnd/types';
+import '../editor.css';
 
 // ELEMENTS
 // Define a React component renderer for our code blocks.
@@ -25,25 +24,11 @@ export const Block = (props: any) => {
     }),
   }));
 
-  const handleStyle: CSSProperties = {
-    backgroundColor: 'green',
-    width: '1rem',
-    height: '1rem',
-    display: 'inline-block',
-    marginRight: '0.75rem',
-    cursor: 'move',
-  };
-
-  const style: CSSProperties = {
-    border: '1px dashed gray',
-    padding: '0.5rem 1rem',
-    marginBottom: '.5rem',
-  };
-
   return (
     <div
       ref={preview}
-      style={{ ...style, opacity }} /**{...props.attributes}**/
+      style={{ opacity }}
+      className='text_box' /**{...props.attributes}**/
     >
       <span ref={drag}>
         <Handle></Handle>
@@ -68,10 +53,9 @@ export const Leaf = (props: any) => {
     return (
       <span
         {...props.attributes}
-        className={props.leaf.text_type}
-        style={{
-          fontWeight: props.leaf.bold ? 'bold' : 'normal',
-        }}
+        className={
+          props.leaf.text_type + ' ' + props.leaf.bold ? 'font-bold' : ''
+        }
       >
         <em>{props.children}</em>
       </span>
@@ -81,8 +65,9 @@ export const Leaf = (props: any) => {
   return (
     <span
       {...props.attributes}
-      className={props.leaf.text_type}
-      style={{ fontWeight: props.leaf.bold ? 'bold' : 'normal' }}
+      className={
+        props.leaf.text_type + ' ' + props.leaf.bold ? 'font-bold' : ''
+      }
     >
       {props.children}
     </span>

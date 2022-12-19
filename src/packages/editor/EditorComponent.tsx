@@ -1,9 +1,8 @@
-import { createComboboxPlugin, createPlateUI, Plate } from '@udecode/plate';
-import React, { useCallback, useMemo, useState } from 'react';
+import { createComboboxPlugin, Plate } from '@udecode/plate';
+import React, { useMemo, useState } from 'react';
 import { EditorFloatingMenu } from './Components/EditorFloatingMenu';
 import { EditorSlashMenu } from './Components/EditorSlashMenu';
 import { editableProps } from './editableProps';
-import { Block } from './Elements/Elements';
 import { createMyPlugins, MyParagraphElement, MyValue } from './plateTypes';
 import { BlockPlugins } from './Plugins/BlockPlugins';
 import { TextMarkPlugins } from './Plugins/TextMarkPlugins';
