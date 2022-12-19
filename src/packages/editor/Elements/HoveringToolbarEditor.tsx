@@ -42,90 +42,90 @@ const HoveringToolbarEditor: React.FC<{}> = () => {
       rect.width / 2 +
       'px';
   };
+  return null;
+  // const items = [
+  //   {
+  //     buttonText: 'text',
+  //     onPress: () => {
+  //       Transforms.setNodes(
+  //         editor,
+  //         { text_type: 'text' },
+  //         // Apply it to text nodes, and split the text node up if the
+  //         // selection is overlapping only part of it.
+  //         {
+  //           match: (n) => Text.isText(n),
+  //         }
+  //       );
+  //     },
+  //   },
+  //   {
+  //     buttonText: 'Header 1',
+  //     onPress: () => {
+  //       Transforms.setNodes(
+  //         editor,
+  //         { text_type: 'h1' },
+  //         // Apply it to text nodes, and split the text node up if the
+  //         // selection is overlapping only part of it.
+  //         {
+  //           match: (n) => Text.isText(n),
+  //         }
+  //       );
+  //     },
+  //   },
+  //   {
+  //     buttonText: 'Header 2',
+  //     onPress: () => {
+  //       Transforms.setNodes(
+  //         editor,
+  //         { text_type: 'h2' },
+  //         // Apply it to text nodes, and split the text node up if the
+  //         // selection is overlapping only part of it.
+  //         {
+  //           match: (n) => Text.isText(n),
+  //         }
+  //       );
+  //     },
+  //   },
+  //   {
+  //     buttonText: 'Header 3',
+  //     onPress: () => {
+  //       Transforms.setNodes(
+  //         editor,
+  //         { text_type: 'h3' },
+  //         // Apply it to text nodes, and split the text node up if the
+  //         // selection is overlapping only part of it.
+  //         {
+  //           match: (n) => Text.isText(n),
+  //         }
+  //       );
+  //     },
+  //   },
+  //   {
+  //     buttonText: 'bold',
+  //     onPress: () => {
+  //       Transforms.setNodes(
+  //         editor,
+  //         { bold: true },
+  //         // Apply it to text nodes, and split the text node up if the
+  //         // selection is overlapping only part of it.
+  //         {
+  //           match: (n) => Text.isText(n),
+  //           split: true,
+  //         }
+  //       );
+  //     },
+  //   },
+  // ];
 
-  const items = [
-    {
-      buttonText: 'text',
-      onPress: () => {
-        Transforms.setNodes(
-          editor,
-          { text_type: 'text' },
-          // Apply it to text nodes, and split the text node up if the
-          // selection is overlapping only part of it.
-          {
-            match: (n) => Text.isText(n),
-          }
-        );
-      },
-    },
-    {
-      buttonText: 'Header 1',
-      onPress: () => {
-        Transforms.setNodes(
-          editor,
-          { text_type: 'h1' },
-          // Apply it to text nodes, and split the text node up if the
-          // selection is overlapping only part of it.
-          {
-            match: (n) => Text.isText(n),
-          }
-        );
-      },
-    },
-    {
-      buttonText: 'Header 2',
-      onPress: () => {
-        Transforms.setNodes(
-          editor,
-          { text_type: 'h2' },
-          // Apply it to text nodes, and split the text node up if the
-          // selection is overlapping only part of it.
-          {
-            match: (n) => Text.isText(n),
-          }
-        );
-      },
-    },
-    {
-      buttonText: 'Header 3',
-      onPress: () => {
-        Transforms.setNodes(
-          editor,
-          { text_type: 'h3' },
-          // Apply it to text nodes, and split the text node up if the
-          // selection is overlapping only part of it.
-          {
-            match: (n) => Text.isText(n),
-          }
-        );
-      },
-    },
-    {
-      buttonText: 'bold',
-      onPress: () => {
-        Transforms.setNodes(
-          editor,
-          { bold: true },
-          // Apply it to text nodes, and split the text node up if the
-          // selection is overlapping only part of it.
-          {
-            match: (n) => Text.isText(n),
-            split: true,
-          }
-        );
-      },
-    },
-  ];
-
-  return (
-    <div ref={ref}>
-      <HoveringToolbar
-        ref={ref}
-        items={items}
-        onRender={(ref: MutableRefObject<any>) => onRender(ref)}
-      />
-    </div>
-  );
+  // return (
+  //   <div ref={ref}>
+  //     <HoveringToolbar
+  //       ref={ref}
+  //       items={items}
+  //       onRender={(ref: MutableRefObject<any>) => onRender(ref)}
+  //     />
+  //   </div>
+  // );
 };
 
 export default HoveringToolbarEditor;

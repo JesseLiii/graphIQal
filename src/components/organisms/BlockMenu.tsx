@@ -8,12 +8,12 @@ type ToolbarButtonProps = {
 };
 
 type BlockMenuProps = {
-  items: ToolbarButtonProps[];
+  items?: ToolbarButtonProps[];
 };
 
 const BlockMenu: React.FC<BlockMenuProps> = ({ items }) => {
   const renderButtons = () => {
-    return items.map((item, i) => {
+    return items?.map((item, i) => {
       const { buttonText, icon, onPress } = item;
       const it = { buttonText, icon, onPress };
       return (
