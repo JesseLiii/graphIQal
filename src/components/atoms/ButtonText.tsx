@@ -1,10 +1,11 @@
 import React from 'react';
+import './atoms.css';
 
 type ButtonTextProps = {
   text: String;
 };
 
 const ButtonText: React.FC<ButtonTextProps> = ({ text }) => {
-  return <p className='text-2xl font-bold underline text-connection'>{text}</p>;
+  return <p className='button_text'>{text}</p>;
 };
 export default ButtonText;

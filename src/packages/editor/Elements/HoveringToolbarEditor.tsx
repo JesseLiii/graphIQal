@@ -124,10 +124,6 @@ const HoveringToolbarEditor: React.FC<{}> = () => {
         items={items}
         onRender={(ref: MutableRefObject<any>) => onRender(ref)}
       />
-      {/* <BlockMenu
-        className='hovering_menu'
-        items={}
-      /> */}
     </div>
   );
 };

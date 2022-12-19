@@ -7,7 +7,7 @@ import DropLayer from '../../packages/dnd/DropLayer';
 import EditorComponent from '../../packages/editor/EditorComponent';
 const Document: React.FC = () => {
   return (
-    <div className='container'>
+    <div>
       <DndProvider backend={HTML5Backend}>
         <EditorComponent></EditorComponent>
         <DropLayer />

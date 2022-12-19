@@ -1,4 +1,5 @@
 import { useDrag } from 'react-dnd';
+import '../editor.css';
 
 // ELEMENTS
 // Define a React component renderer for our code blocks.

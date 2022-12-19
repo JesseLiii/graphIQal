@@ -1,6 +1,6 @@
 import React, { MutableRefObject, useEffect, useRef } from 'react';
 import ToolbarButton from '../molecules/ToolbarButton';
-import './HoveringToolbar.css';
+import './organisms.css';
 
 type ToolbarButtonProps = {
   buttonText: String;
@@ -26,7 +26,7 @@ const HoveringToolbar = React.forwardRef<
     return items.map((item, i) => {
       const { buttonText, icon, onPress } = item;
       const it = { buttonText, icon, onPress };
-      return <ToolbarButton className='hovering_menu_item' item={it} />;
+      return <ToolbarButton key={i} className='menu_item' item={it} />;
     });
   };
   return (
@@ -35,20 +35,15 @@ const HoveringToolbar = React.forwardRef<
       style={{
         opacity: 0,
         display: 'inline-block',
-        padding: '8px 7px 6px',
         position: 'absolute',
         zIndex: 1,
         top: 0,
         left: 0,
-        marginTop: '-50px',
-        backgroundColor: '#00000',
-        height: 30,
-        width: 30,
-        borderRadius: '4px',
+        marginTop: '-10px',
         marginLeft: '50px',
       }}
     >
-      <div className='hovering_menu'>{renderButtons()}</div>
+      <div className='menu bg-base_black'>{renderButtons()}</div>
     </div>
   );
 });

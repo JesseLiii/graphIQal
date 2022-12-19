@@ -1,3 +1,11 @@
-/* .App {
-  text-align: center;
-} */
+@config '../tailwind.config.js';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container {
+  padding: 5%;
+  @apply bg-base_white;
+  height: theme(screens[xl]);
+}

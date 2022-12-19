@@ -1,9 +1,13 @@
 /** @type {import('tailwindcss').Config} */
+/**
+ * - screen sizes for laptops
+ * - look into spacing
+ * - look into sizing (icon size), sizing constants, padding, border size
+ * - look into responsive design
+ */
+const X = 1;
 module.exports = {
   content: ['./src/components/**/*.{js,jsx,ts,tsx}'],
-  theme: {
-    extend: {},
-  },
   plugins: [],
   theme: {
     screens: {
@@ -23,19 +27,22 @@ module.exports = {
         144: '36rem',
       },
       borderRadius: {
-        '4xl': '2rem',
+        text_box: '2rem',
+        tab: '4rem',
       },
       fontSize: {
-        small: '10px',
-        large: '20px',
+        title: '38px',
+        header_1: '30px',
+        header_2: '25px',
+        header_3: '20px', //also using for toolbar buttons
+        text: '12px',
       },
       colors: {
-        base_black: '#242424',
-        base_white: '#FCFAF4',
+        base_black: '#424245',
+        base_white: '#FEF9EF',
         node: '#8DD39C',
         selected_white: '#FFF9E9',
         connection: '#4362B1',
-        blue: '4362B1',
       },
       fontFamily: {
         code: [

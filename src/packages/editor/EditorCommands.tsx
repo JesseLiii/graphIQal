@@ -49,9 +49,6 @@ const EditorCommands = {
     const [match] = Array.from(
       Editor.nodes(editor, {
         match: (n) => {
-          // console.log('match');
-          // console.log(n);
-          // console.log(Editor.isBlock(editor, n));
           return Editor.isBlock(editor, n) && n.format === 'code';
         },
       })

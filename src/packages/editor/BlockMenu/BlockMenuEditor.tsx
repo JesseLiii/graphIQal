@@ -1,12 +1,11 @@
 // make toolbar a general component that just takes in children and stuff
 
-import React, { useRef } from 'react';
+import React from 'react';
 import { Text, Transforms } from 'slate';
 import { useSlate } from 'slate-react';
 import BlockMenu from '../../../components/organisms/BlockMenu';
 
 const BlockMenuEditor: React.FC<{}> = () => {
-  const ref = useRef<any>();
   const editor = useSlate();
 
   const items = [
@@ -83,7 +82,7 @@ const BlockMenuEditor: React.FC<{}> = () => {
     },
   ];
 
-  return <BlockMenu ref={ref} items={items} />;
+  return <BlockMenu items={items} />;
 };
 
 export default BlockMenuEditor;

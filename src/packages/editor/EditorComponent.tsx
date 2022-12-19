@@ -47,49 +47,7 @@ const initialValue: CustomElement[] = [
 
 const EditorComponent: React.FC = () => {
   const [editor] = useState(() => withReact(createEditor()));
-  // const [isOpen, setIsOpen] = useState(false);
-  // const commandTextRef = useRef<any>('');
-  // const closeMenu = false;
-  // const menuListRef = useRef<any>(null);
-  console.log(editor.selection);
 
-  // eslint-disable-next-line no-empty
-  // const [commands, setCommands] = useState(items)
-  //   const openTagSelectorMenu = () => {
-  //     // if (!isOpen) {
-  //       if (menuListRef.current != null) {
-  //         menuListRef.current.scrollTo(0, 0)
-  //       }
-
-  //     // editor.isCommandMenu = true
-  //     setIsOpen(true)
-  //     // }
-
-  //     document.addEventListener('click', closeTagSelectorMenu, false)
-  // }
-
-  // const closeTagSelectorMenu = () => {
-  //     console.log('closeTagSelectorMenu')
-  //     commandTextRef.current = ''
-  //     // editor.isCommandMenu = false
-  //     setIsOpen(false)
-  //     resetCommands()
-  //     // setSelected(0)
-  //     // commandOffset.current = 0
-  //     document.removeEventListener('click', closeTagSelectorMenu, false)
-  // }
-
-  // const resetCommands = () => {
-  //   console.log('resetCommands')
-
-  //   setCommands([...SlateMenus])
-  //   commandsLengthRef.current = SlateMenus.length
-  //   setSelected(0)
-  //   // commandOffset.current = 0
-  //   editor.commands = [...SlateMenus]
-  //   editor.selectedCommand = 0
-  // }
-  // ReactEditor.findPath()
   // ELEMENTS
   // Define a React component renderer for our code blocks.
 
@@ -119,10 +77,6 @@ const EditorComponent: React.FC = () => {
           renderLeaf={renderLeaf}
           onKeyDown={(event) => {
             if (!event.ctrlKey && !event.metaKey) {
-              // console.log(
-              //   'event ' + event.currentTarget.offsetHeight
-              //   // event.currentTarget
-              // );
               switch (event.key) {
                 case 'Tab':
                   event.preventDefault();

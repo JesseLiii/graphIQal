@@ -1,0 +1,21 @@
+@config '../../../tailwind.config.js'
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .menu {
+    border-radius: 5px;
+    @apply border-base_black;
+    border-width: 1px;
+    border-style: solid;
+    width: fit-content;
+    @apply flex;
+    @apply flex-row;
+  }
+
+  .menu_item + .menu_item {
+    @apply border-base_black;
+    border-style: solid;
+  }
+}

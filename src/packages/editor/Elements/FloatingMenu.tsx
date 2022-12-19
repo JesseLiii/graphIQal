@@ -42,9 +42,6 @@ const FloatingMenu: React.FC<{}> = () => {
     // document.addEventListener('click', closeTagSelectorMenu, false)
   };
   useEffect(() => {
-    // console.log(getCurrentBlock(editor))
-    // console.log(Editor.before);
-
     const el = ref.current;
     const { selection } = editor;
     if (isCommandMenu) openTagSelectorMenu();
