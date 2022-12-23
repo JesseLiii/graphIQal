@@ -7,8 +7,11 @@
  */
 const X = 1;
 module.exports = {
-  content: ['./src/components/**/*.{js,jsx,ts,tsx}'],
-  plugins: [],
+  content: [
+    './src/components/**/*.{js,jsx,ts,tsx}',
+    './node_modules/tw-elements/dist/js/**/*.js',
+  ],
+  plugins: [require('tw-elements/dist/plugin')],
   theme: {
     screens: {
       sm: '480px',
@@ -17,6 +20,7 @@ module.exports = {
       xl: '1440px',
     },
     spacing: {
+      0: '0px',
       1: '8px',
       2: '12px',
       3: '16px',

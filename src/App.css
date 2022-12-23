@@ -5,7 +5,5 @@
 @tailwind utilities;
 
 .container {
-  padding: 5%;
   @apply bg-base_white;
-  height: theme(screens[xl]);
 }

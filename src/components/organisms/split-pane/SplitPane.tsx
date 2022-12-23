@@ -1,3 +1,5 @@
+import { AngleDown } from '@styled-icons/fa-solid/AngleDown';
+import { AngleRight } from '@styled-icons/fa-solid/AngleRight';
 import React, {
   createRef,
   useContext,
@@ -5,16 +7,17 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import ShelfContext, { ShelfContextInterface } from './ShelfContext';
-import { Item } from './ShelfContext';
-import SplitPaneContext from './SplitPaneContext';
 import './pane.css';
-import { SplitPaneContextInterface } from './SplitPaneContext';
+import SplitPaneContext, {
+  SplitPaneContextInterface,
+} from './SplitPaneContext';
 
 type SplitPaneProps = {
   children: any;
   className: string;
 };
+
+const MIN_HEIGHT = 15;
 
 const SplitPane: React.FC<SplitPaneProps> = ({ children, className }) => {
   const [clientHeight, setClientHeight] = useState<number | null>(null);
@@ -85,12 +88,10 @@ export const Divider = (props: any) => {
 
 export const SplitPaneTop = (props: any) => {
   const topRef = createRef<any>();
+  const [active, setActive] = useState<boolean>(false);
   const { clientHeight, setClientHeight } = React.useContext(
     SplitPaneContext
   ) as SplitPaneContextInterface;
-  const { shelfItems, setCurrItems, currItems } = useContext(
-    ShelfContext
-  ) as ShelfContextInterface;
 
   useEffect(() => {
     if (!clientHeight) {
@@ -98,31 +99,47 @@ export const SplitPaneTop = (props: any) => {
       return;
     }
 
+    if (clientHeight < MIN_HEIGHT) {
+      setActive(false);
+    }
+    if (!active) {
+      setActive(true);
+    }
     topRef.current.style.minHeight = clientHeight + 'px';
     topRef.current.style.maxHeight = clientHeight + 'px';
   }, [clientHeight]);
 
+  useEffect(() => {
+    if (!clientHeight) {
+      setClientHeight(topRef.current.clientHeight);
+      return;
+    }
+    if (!active) {
+      topRef.current.style.minHeight = MIN_HEIGHT * 3.5 + 'px';
+      topRef.current.style.maxHeight = MIN_HEIGHT * 3.5 + 'px';
+    } else {
+      // setClientHeight(topRef.current.style.minHeight);
+      topRef.current.style.minHeight = clientHeight + 'px';
+      topRef.current.style.maxHeight = clientHeight + 'px';
+    }
+  }, [active]);
+
   return (
     <div {...props} className='split-pane-top' ref={topRef}>
-      <h1>Connections</h1>
-      <ul>
-        {shelfItems.map((el: Item, i) => {
-          return (
-            <li key={i}>
-              <a href='#' onClick={() => setCurrItems([...currItems, el.id])}>
-                {el.author}
-              </a>
-            </li>
-          );
-        })}
-      </ul>
+      <div className='flex flex-row content-center items-center'>
+        {active ? (
+          <AngleDown onClick={() => setActive(false)} size={MIN_HEIGHT} />
+        ) : (
+          <AngleRight onClick={() => setActive(true)} size={MIN_HEIGHT} />
+        )}
+        <h3 className='text-header_3'>{props.title}</h3>
+      </div>
+      {props.children}
     </div>
   );
 };
 
 export const SplitPaneBottom = (props: any) => {
-  const { currItems } = useContext(ShelfContext) as ShelfContextInterface;
-
   return (
     <div {...props} className='split-pane-bottom'>
       {props.children}
@@ -150,11 +167,6 @@ export const SplitPaneLeft = (props: any) => {
 };
 
 export const SplitPaneRight = (props: any) => {
-  const { shelfItems, currItems } = useContext(
-    ShelfContext
-  ) as ShelfContextInterface;
-  const itemList = shelfItems.find((el) => el.id === currItems[0]);
-
   return (
     <div {...props} className='split-pane-right'>
       {props.children}

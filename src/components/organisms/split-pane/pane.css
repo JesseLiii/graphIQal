@@ -1,4 +1,4 @@
-@config '../../../tailwind.config.js'
+@config '../../../../tailwind.config.js'
 
 @tailwind base;
 @tailwind components;
@@ -33,9 +33,12 @@
 
 .split-pane-top,
 .split-pane-bottom {
-  @apply bg-connection;
   text-align: left;
   padding: theme(spacing.3);
+}
+
+.split-pane-bottom {
+  @apply bg-connection;
 }
 
 .separator-col {

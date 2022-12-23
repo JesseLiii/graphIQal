@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import SplitPane from './SplitPane';
 import ShelfContext from './ShelfContext';
-import Document from '../../pages/document/Document';
+import Document from '../../../pages/document/Document';
 import {
   SplitPaneLeft,
   SplitPaneBottom,
@@ -37,7 +37,9 @@ const SplitPaneWrapper: React.FC<{}> = () => {
       <SplitPane className='split-pane-row'>
         <SplitPaneLeft>
           <SplitPane className='split-pane-col'>
-            <SplitPaneTop />
+            <SplitPaneTop title={'Shelf'} children={<h1>text</h1>} />
+            <Divider className='separator-row' />
+            <SplitPaneTop title={'Connections'} children={<h1>text</h1>} />
             <Divider className='separator-row' />
             <SplitPaneBottom />
           </SplitPane>

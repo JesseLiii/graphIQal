@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Document from './document/Document';
 import View from '../components/layouts/View';
 import Window from '../components/layouts/Window';
-import SplitPaneWrapper from '../packages/split-pane/SplitPaneWrapper';
+import SplitPaneWrapper from '../components/organisms/split-pane/SplitPaneWrapper';
 
 const Home: React.FC = () => {
   return (
@@ -10,7 +10,6 @@ const Home: React.FC = () => {
       <Window>
         <View>
           <SplitPaneWrapper></SplitPaneWrapper>
-          {/* <Document></Document> */}
         </View>
       </Window>
     </div>

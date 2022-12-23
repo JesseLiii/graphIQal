@@ -17,4 +17,8 @@
     @apply mr-1;
     cursor: 'move';
   }
+
+  .icon_button {
+    width: theme(spacing.4);
+  }
 }
