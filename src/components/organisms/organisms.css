@@ -12,13 +12,4 @@
     @apply flex;
     @apply flex-row;
   }
-
-  .collapse_content {
-    height: theme(spacing.4);
-    transition: all;
-    @apply delay-150;
-    @apply duration-300;
-    @apply overflow-hidden w-full;
-    @apply ease-out;
-  }
 }

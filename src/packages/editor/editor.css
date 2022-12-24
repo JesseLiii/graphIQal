@@ -5,23 +5,23 @@
 
 .h1 {
   @apply font-bold !important;
-  @apply text-header_1;
+  @apply text-lg;
 }
 
 .h2 {
   @apply font-bold !important;
-  @apply text-header_2;
+  @apply text-md;
 }
 
 .h3 {
   @apply font-bold !important;
-  @apply text-header_3;
+  @apply text-sm;
 }
 
 .text_box {
   @apply border-dashed;
   @apply border-base_black;
-  border-width: calc(theme(spacing.1) * 0.25);
-  padding: theme(spacing.1);
-  margin-bottom: theme(spacing.1);
+  border-width: theme(spacing[xxs]);
+  padding: theme(spacing[sm]);
+  margin-bottom: theme(spacing[sm]);
 }

@@ -7,6 +7,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
+import IconTitle from '../../molecules/IconTitle';
 import './pane.css';
 import SplitPaneContext, {
   SplitPaneContextInterface,
@@ -17,7 +18,17 @@ type SplitPaneProps = {
   className: string;
 };
 
-const MIN_HEIGHT = 15;
+/*
+hemingway bridge:
+- make molecule for icon and title
+- fix usecontext for height of different panes
+- make panes scrollable
+- clean files and push
+- responsive design 
+*/
+
+//should be lg spacing variable
+const UNIT = 1;
 
 const SplitPane: React.FC<SplitPaneProps> = ({ children, className }) => {
   const [clientHeight, setClientHeight] = useState<number | null>(null);
@@ -99,7 +110,7 @@ export const SplitPaneTop = (props: any) => {
       return;
     }
 
-    if (clientHeight < MIN_HEIGHT) {
+    if (clientHeight < 50) {
       setActive(false);
     }
     if (!active) {
@@ -115,8 +126,8 @@ export const SplitPaneTop = (props: any) => {
       return;
     }
     if (!active) {
-      topRef.current.style.minHeight = MIN_HEIGHT * 3.5 + 'px';
-      topRef.current.style.maxHeight = MIN_HEIGHT * 3.5 + 'px';
+      topRef.current.style = UNIT * 3.5 + 'em';
+      topRef.current.style.maxHeight = UNIT * 3.5 + 'em';
     } else {
       // setClientHeight(topRef.current.style.minHeight);
       topRef.current.style.minHeight = clientHeight + 'px';
@@ -126,14 +137,17 @@ export const SplitPaneTop = (props: any) => {
 
   return (
     <div {...props} className='split-pane-top' ref={topRef}>
-      <div className='flex flex-row content-center items-center'>
-        {active ? (
-          <AngleDown onClick={() => setActive(false)} size={MIN_HEIGHT} />
-        ) : (
-          <AngleRight onClick={() => setActive(true)} size={MIN_HEIGHT} />
-        )}
-        <h3 className='text-header_3'>{props.title}</h3>
-      </div>
+      <IconTitle
+        title={props.title}
+        icon={
+          active ? (
+            <AngleDown onClick={() => setActive(false)} size={UNIT + 'em'} />
+          ) : (
+            <AngleRight onClick={() => setActive(true)} size={UNIT + 'em'} />
+          )
+        }
+      />
+
       {props.children}
     </div>
   );

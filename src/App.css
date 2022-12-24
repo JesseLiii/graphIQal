@@ -4,6 +4,31 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  h1,
+  h2,
+  h3,
+  p {
+    @apply font-primary;
+    color: theme(colors.base_black);
+  }
+
+  h1 {
+    @apply text-xxl;
+  }
+
+  h2 {
+    @apply text-xl;
+  }
+
+  h3 {
+    @apply text-lg;
+  }
+
+  p {
+    @apply text-md;
+  }
+}
 .container {
   @apply bg-base_white;
 }

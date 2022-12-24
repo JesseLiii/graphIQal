@@ -5,7 +5,7 @@
 
 @layer components {
   .button_text {
-    @apply text-header_3;
+    @apply text-sm;
     @apply text-base_white;
   }
 
@@ -19,6 +19,6 @@
   }
 
   .icon_button {
-    width: theme(spacing.4);
+    width: theme(spacing.sm);
   }
 }

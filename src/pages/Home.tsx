@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
-import Document from './document/Document';
+import React from 'react';
 import View from '../components/layouts/View';
 import Window from '../components/layouts/Window';
-import SplitPaneWrapper from '../components/organisms/split-pane/SplitPaneWrapper';
+import SplitPaneDocument from './document/SplitPaneDocument';
 
 const Home: React.FC = () => {
   return (
     <div>
       <Window>
         <View>
-          <SplitPaneWrapper></SplitPaneWrapper>
+          <SplitPaneDocument></SplitPaneDocument>
         </View>
       </Window>
     </div>

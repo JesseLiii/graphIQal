@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import SplitPane from './SplitPane';
-import ShelfContext from './ShelfContext';
-import Document from '../../../pages/document/Document';
+import SplitPane from '../../components/organisms/split-pane/SplitPane';
+import ShelfContext from '../../components/organisms/split-pane/ShelfContext';
+import Document from './Document';
 import {
   SplitPaneLeft,
   SplitPaneBottom,
   SplitPaneTop,
   Divider,
   SplitPaneRight,
-} from './SplitPane';
+} from '../../components/organisms/split-pane/SplitPane';
 
 const shelfItems = [
   {
@@ -37,15 +37,14 @@ const SplitPaneWrapper: React.FC<{}> = () => {
       <SplitPane className='split-pane-row'>
         <SplitPaneLeft>
           <SplitPane className='split-pane-col'>
-            <SplitPaneTop title={'Shelf'} children={<h1>text</h1>} />
+            <SplitPaneTop title={'Shelf'} children={<p>text</p>} />
             <Divider className='separator-row' />
-            <SplitPaneTop title={'Connections'} children={<h1>text</h1>} />
+            <SplitPaneTop title={'Connections'} children={<p>text</p>} />
             <Divider className='separator-row' />
             <SplitPaneBottom />
           </SplitPane>
         </SplitPaneLeft>
         <Divider className='separator-col' />
-
         <SplitPaneRight children={<Document></Document>} />
       </SplitPane>
     </ShelfContext.Provider>

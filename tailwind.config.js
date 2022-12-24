@@ -1,11 +1,17 @@
 /** @type {import('tailwindcss').Config} */
+
 /**
  * - screen sizes for laptops
  * - look into spacing
  * - look into sizing (icon size), sizing constants, padding, border size
  * - look into responsive design
  */
-const X = 1;
+
+//CONSTANTS
+const UNIT = 1;
+const TEXT_BASE_SIZE = 1;
+const TEXT_SCALE_RATIO = 1.2;
+
 module.exports = {
   content: [
     './src/components/**/*.{js,jsx,ts,tsx}',
@@ -19,13 +25,6 @@ module.exports = {
       lg: '976px',
       xl: '1440px',
     },
-    spacing: {
-      0: '0px',
-      1: '8px',
-      2: '12px',
-      3: '16px',
-      4: '24px',
-    },
 
     fontFamily: {
       sans: ['Graphik', 'sans-serif'],
@@ -33,20 +32,19 @@ module.exports = {
     },
     extend: {
       spacing: {
-        128: '32rem',
-        144: '36rem',
+        xxs: 0.25 * UNIT + 'em',
+        xs: 0.5 * UNIT + 'em',
+        sm: 0.75 * UNIT + 'em',
+        md: 1.25 * UNIT + 'em',
+        lg: 2 * UNIT + 'em',
+        xl: 3.25 * UNIT + 'em',
+        xxl: 5.25 * UNIT + 'em',
       },
       borderRadius: {
         text_box: '2rem',
         tab: '4rem',
       },
-      fontSize: {
-        title: '38px',
-        header_1: '30px',
-        header_2: '25px',
-        header_3: '20px', //also using for toolbar buttons
-        text: '12px',
-      },
+
       colors: {
         base_black: '#424245',
         base_white: '#FEF9EF',
@@ -54,7 +52,36 @@ module.exports = {
         selected_white: '#FFF9E9',
         connection: '#4362B1',
       },
+      fontSize: {
+        xs: TEXT_BASE_SIZE / (TEXT_SCALE_RATIO * TEXT_SCALE_RATIO) + 'em',
+        sm: TEXT_BASE_SIZE / TEXT_SCALE_RATIO + 'em',
+        md: TEXT_BASE_SIZE * TEXT_SCALE_RATIO + 'em',
+        lg: TEXT_BASE_SIZE * TEXT_SCALE_RATIO * TEXT_SCALE_RATIO + 'em',
+        xl:
+          TEXT_BASE_SIZE *
+            TEXT_SCALE_RATIO *
+            TEXT_SCALE_RATIO *
+            TEXT_SCALE_RATIO +
+          'em',
+        xxl:
+          TEXT_BASE_SIZE *
+            TEXT_SCALE_RATIO *
+            TEXT_SCALE_RATIO *
+            TEXT_SCALE_RATIO *
+            TEXT_SCALE_RATIO +
+          'em',
+        xxxl:
+          TEXT_BASE_SIZE *
+            TEXT_SCALE_RATIO *
+            TEXT_SCALE_RATIO *
+            TEXT_SCALE_RATIO *
+            TEXT_SCALE_RATIO *
+            TEXT_SCALE_RATIO +
+          'em',
+      },
       fontFamily: {
+        primary: 'sans',
+        secondary: 'serif',
         code: [
           'source-code-pro',
           'Menlo',
