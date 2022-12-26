@@ -22,8 +22,8 @@ export const BlockPlugins = createMyPlugins(
       ...createPlateUI({}),
       [ELEMENT_PARAGRAPH]: Block,
       [ELEMENT_H1]: H1,
-      // [ELEMENT_H2]: H2,
-      // [ELEMENT_H3]: H3,
+      [ELEMENT_H2]: H2,
+      [ELEMENT_H3]: H3,
     },
   }
 );
