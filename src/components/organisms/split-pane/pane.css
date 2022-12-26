@@ -23,7 +23,7 @@
 .split-pane-right,
 .split-pane-left {
   @apply flex-1;
-  @apply overflow-hidden;
+  @apply overflow-scroll;
 }
 
 .split-pane-right {

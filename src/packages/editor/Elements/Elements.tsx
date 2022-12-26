@@ -1,4 +1,9 @@
-import { createPlateUI, ELEMENT_H1 } from '@udecode/plate';
+import {
+  createPlateUI,
+  ELEMENT_H1,
+  ELEMENT_H2,
+  ELEMENT_H3,
+} from '@udecode/plate';
 import { useDrag } from 'react-dnd';
 import Handle from '../../../components/atoms/Handle';
 import { ItemTypes } from '../../dnd/types';
@@ -45,6 +50,24 @@ export const H1 = (props: any) => {
   // return plateUI[ELEMENT_H1];
 
   return <Block>{props.children}</Block>;
+};
+
+export const H2 = (props: any) => {
+  console.log(props);
+  const plateUI = createPlateUI({})[ELEMENT_H2];
+  console.log(plateUI);
+  // return plateUI[ELEMENT_H1];
+
+  return <h2>{props.children}</h2>;
+};
+
+export const H3 = (props: any) => {
+  console.log(props);
+  const plateUI = createPlateUI({})[ELEMENT_H3];
+  console.log(plateUI);
+  // return plateUI[ELEMENT_H1];
+
+  return <h3>{props.children}</h3>;
 };
 
 export const Leaf = (props: any) => {

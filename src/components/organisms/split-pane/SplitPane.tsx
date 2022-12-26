@@ -20,9 +20,7 @@ type SplitPaneProps = {
 
 /*
 hemingway bridge:
-- make molecule for icon and title
 - fix usecontext for height of different panes
-- make panes scrollable
 - clean files and push
 - responsive design 
 */
@@ -32,6 +30,7 @@ const UNIT = 1;
 
 const SplitPane: React.FC<SplitPaneProps> = ({ children, className }) => {
   const [clientHeight, setClientHeight] = useState<number | null>(null);
+  const [clientHeight2, setClientHeight2] = useState<number | null>(null);
   const [clientWidth, setClientWidth] = useState<number | null>(null);
   const yDividerPos = useRef<number | null>(null);
   const xDividerPos = useRef<number | null>(null);
@@ -136,7 +135,7 @@ export const SplitPaneTop = (props: any) => {
   }, [active]);
 
   return (
-    <div {...props} className='split-pane-top' ref={topRef}>
+    <div {...props} className={'split-pane-top'} ref={topRef}>
       <IconTitle
         title={props.title}
         icon={
@@ -147,8 +146,7 @@ export const SplitPaneTop = (props: any) => {
           )
         }
       />
-
-      {props.children}
+      <div style={{ paddingTop: UNIT * 3.5 + 'em' }}>{props.children}</div>
     </div>
   );
 };
