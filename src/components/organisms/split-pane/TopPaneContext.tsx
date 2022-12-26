@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 
-export type SplitPaneContextInterface = {
+export type TopPaneContextInterface = {
   // shelfHeight: number | null;
   // connectionHeight: number | null;
   // width: number | null;
@@ -8,12 +8,11 @@ export type SplitPaneContextInterface = {
   // setShelfHeight: (value: number) => void;
   // setConnectionHeight: (value: number) => void;
   // setWidth: (value: number) => void;
-
-  clientWidth: number | null;
-  setClientWidth: (value: number) => void;
+  clientHeight: number | null;
+  setClientHeight: (value: number) => void;
   onMouseHoldDown: (e: MouseEvent) => void;
 };
 
-const SplitPaneContext = createContext<SplitPaneContextInterface | null>(null);
+const TopPaneContext = createContext<TopPaneContextInterface | null>(null);
 
-export default SplitPaneContext;
+export default TopPaneContext;

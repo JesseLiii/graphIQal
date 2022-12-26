@@ -17,9 +17,8 @@ const SplitPaneWrapper: React.FC<{}> = () => {
       <SplitPaneLeft>
         <SplitPane className='split-pane-col'>
           <SplitPaneTop title={'Shelf'} children={<p>text</p>} />
-          <Divider className='separator-row' />
+
           <SplitPaneTop title={'Connections'} children={<p>text</p>} />
-          <Divider className='separator-row' />
           <SplitPaneBottom />
         </SplitPane>
       </SplitPaneLeft>

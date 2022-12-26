@@ -12,6 +12,7 @@ import './pane.css';
 import SplitPaneContext, {
   SplitPaneContextInterface,
 } from './SplitPaneContext';
+import TopPaneContext from './TopPaneContext';
 
 type SplitPaneProps = {
   children: any;
@@ -29,35 +30,26 @@ hemingway bridge:
 const UNIT = 1;
 
 const SplitPane: React.FC<SplitPaneProps> = ({ children, className }) => {
-  const [clientHeight, setClientHeight] = useState<number | null>(null);
-  const [clientHeight2, setClientHeight2] = useState<number | null>(null);
   const [clientWidth, setClientWidth] = useState<number | null>(null);
-  const yDividerPos = useRef<number | null>(null);
   const xDividerPos = useRef<number | null>(null);
 
   const onMouseHoldDown = (e: MouseEvent) => {
-    yDividerPos.current = e.clientY;
     xDividerPos.current = e.clientX;
   };
 
   const onMouseHoldUp = () => {
-    yDividerPos.current = null;
     xDividerPos.current = null;
   };
 
   const onMouseHoldMove = (e: MouseEvent) => {
-    if (!yDividerPos.current && !xDividerPos.current) {
+    if (!xDividerPos.current) {
       return;
     }
 
-    setClientHeight(
-      (clientHeight as number) + e.clientY - (yDividerPos.current as number)
-    );
     setClientWidth(
       (clientWidth as number) + e.clientX - (xDividerPos.current as number)
     );
 
-    yDividerPos.current = e.clientY;
     xDividerPos.current = e.clientX;
   };
 
@@ -75,8 +67,6 @@ const SplitPane: React.FC<SplitPaneProps> = ({ children, className }) => {
     <div className={className}>
       <SplitPaneContext.Provider
         value={{
-          clientHeight,
-          setClientHeight,
           clientWidth,
           setClientWidth,
           onMouseHoldDown,
@@ -93,15 +83,49 @@ export const Divider = (props: any) => {
     SplitPaneContext
   ) as SplitPaneContextInterface;
 
-  return <div {...props} onMouseDown={onMouseHoldDown} />;
+  return (
+    <div
+      {...props}
+      onMouseDown={
+        props.onMouseHoldDown ? props.onMouseHoldDown : onMouseHoldDown
+      }
+    />
+  );
 };
 
 export const SplitPaneTop = (props: any) => {
   const topRef = createRef<any>();
   const [active, setActive] = useState<boolean>(false);
-  const { clientHeight, setClientHeight } = React.useContext(
-    SplitPaneContext
-  ) as SplitPaneContextInterface;
+  const [clientHeight, setClientHeight] = useState<number | null>(null);
+
+  const yDividerPos = useRef<number | null>(null);
+  const onMouseHoldDown = (e: MouseEvent) => {
+    yDividerPos.current = e.clientY;
+  };
+
+  const onMouseHoldUp = () => {
+    yDividerPos.current = null;
+  };
+
+  const onMouseHoldMove = (e: MouseEvent) => {
+    if (!yDividerPos.current) {
+      return;
+    }
+    setClientHeight(
+      (clientHeight as number) + e.clientY - (yDividerPos.current as number)
+    );
+    yDividerPos.current = e.clientY;
+  };
+
+  useEffect(() => {
+    document.addEventListener('mouseup', onMouseHoldUp);
+    document.addEventListener('mousemove', onMouseHoldMove);
+
+    return () => {
+      document.removeEventListener('mouseup', onMouseHoldUp);
+      document.removeEventListener('mousemove', onMouseHoldMove);
+    };
+  });
 
   useEffect(() => {
     if (!clientHeight) {
@@ -115,6 +139,7 @@ export const SplitPaneTop = (props: any) => {
     if (!active) {
       setActive(true);
     }
+
     topRef.current.style.minHeight = clientHeight + 'px';
     topRef.current.style.maxHeight = clientHeight + 'px';
   }, [clientHeight]);
@@ -135,19 +160,22 @@ export const SplitPaneTop = (props: any) => {
   }, [active]);
 
   return (
-    <div {...props} className={'split-pane-top'} ref={topRef}>
-      <IconTitle
-        title={props.title}
-        icon={
-          active ? (
-            <AngleDown onClick={() => setActive(false)} size={UNIT + 'em'} />
-          ) : (
-            <AngleRight onClick={() => setActive(true)} size={UNIT + 'em'} />
-          )
-        }
-      />
-      <div style={{ paddingTop: UNIT * 3.5 + 'em' }}>{props.children}</div>
-    </div>
+    <>
+      <div {...props} className={'split-pane-top'} ref={topRef}>
+        <IconTitle
+          title={props.title}
+          icon={
+            active ? (
+              <AngleDown onClick={() => setActive(false)} size={UNIT + 'em'} />
+            ) : (
+              <AngleRight onClick={() => setActive(true)} size={UNIT + 'em'} />
+            )
+          }
+        />
+        <div style={{ paddingTop: UNIT * 3.5 + 'em' }}>{props.children}</div>
+      </div>
+      <Divider onMouseHoldDown={onMouseHoldDown} className='separator-row' />
+    </>
   );
 };
 
