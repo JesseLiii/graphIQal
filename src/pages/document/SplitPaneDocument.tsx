@@ -1,23 +1,19 @@
-import React, { useState } from 'react';
-import SplitPane from '../../components/organisms/split-pane/SplitPane';
-import ShelfContext from '../../components/organisms/split-pane/ShelfContext';
-import Document from './Document';
-import {
-  SplitPaneLeft,
-  SplitPaneBottom,
-  SplitPaneTop,
+import React from 'react';
+import SplitPane, {
   Divider,
+  SplitPaneBottom,
+  SplitPaneLeft,
   SplitPaneRight,
+  SplitPaneTop,
 } from '../../components/organisms/split-pane/SplitPane';
+import Document from './Document';
 
 const SplitPaneWrapper: React.FC<{}> = () => {
   return (
-    // <ShelfContext.Provider value={{ shelfItems, currItems, setCurrItems }}>
     <SplitPane className='split-pane-row'>
       <SplitPaneLeft>
         <SplitPane className='split-pane-col'>
           <SplitPaneTop title={'Shelf'} children={<p>text</p>} />
-
           <SplitPaneTop title={'Connections'} children={<p>text</p>} />
           <SplitPaneBottom />
         </SplitPane>
@@ -25,7 +21,6 @@ const SplitPaneWrapper: React.FC<{}> = () => {
       <Divider className='separator-col' />
       <SplitPaneRight children={<Document></Document>} />
     </SplitPane>
-    // </ShelfContext.Provider>
   );
 };
 export default SplitPaneWrapper;

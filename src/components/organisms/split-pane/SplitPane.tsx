@@ -12,19 +12,21 @@ import './pane.css';
 import SplitPaneContext, {
   SplitPaneContextInterface,
 } from './SplitPaneContext';
-import TopPaneContext from './TopPaneContext';
 
 type SplitPaneProps = {
   children: any;
   className: string;
 };
 
-/*
-hemingway bridge:
-- fix usecontext for height of different panes
-- clean files and push
-- responsive design 
-*/
+/**
+ * Bugs to fix:
+ * - making window smaller than or equal to min then expanding/collapsing
+ * - collapsing horizontally still shows headers / it pushes the content off the screen but you can still scroll to it
+ * - changing sizes highlights the headers
+ * - it kinda seizures a bit as it approaches the min height
+ * - sometimes the scrolling vertically covers the header, sometimes it doesn't and idk why
+ * - warning in terminal and error in console but they're necessary for it to work
+ */
 
 //should be lg spacing variable
 const UNIT = 1;
@@ -154,6 +156,7 @@ export const SplitPaneTop = (props: any) => {
       topRef.current.style.maxHeight = UNIT * 3.5 + 'em';
     } else {
       // setClientHeight(topRef.current.style.minHeight);
+
       topRef.current.style.minHeight = clientHeight + 'px';
       topRef.current.style.maxHeight = clientHeight + 'px';
     }

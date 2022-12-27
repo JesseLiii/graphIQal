@@ -8,7 +8,7 @@ import { BlockPlugins } from './Plugins/BlockPlugins';
 import { TextMarkPlugins } from './Plugins/TextMarkPlugins';
 
 const EditorComponent: React.FC = () => {
-  const [value, setValue] = useState([
+  const [value] = useState([
     {
       type: 'p',
       children: [
