@@ -17,7 +17,7 @@ module.exports = {
     './src/components/**/*.{js,jsx,ts,tsx}',
     './node_modules/tw-elements/dist/js/**/*.js',
   ],
-  plugins: [require('tw-elements/dist/plugin')],
+  plugins: [],
   theme: {
     screens: {
       sm: '480px',
