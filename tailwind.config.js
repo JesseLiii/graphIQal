@@ -80,8 +80,8 @@ module.exports = {
           'em',
       },
       fontFamily: {
-        primary: 'sans',
-        secondary: 'serif',
+        primary: 'serif',
+        secondary: 'sans-serif',
         code: [
           'source-code-pro',
           'Menlo',

@@ -6,7 +6,7 @@ type IconTitleProps = {
 };
 const IconTitle: React.FC<IconTitleProps> = ({ icon, title }) => {
   return (
-    <div className='flex flex-row content-center items-center self-center absolute'>
+    <div className='flex flex-row content-center items-center self-center overflow-hidden'>
       {icon}
       <h3 className='ml-xxs'>{title}</h3>
     </div>

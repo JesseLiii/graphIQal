@@ -21,7 +21,6 @@ type SplitPaneProps = {
 /**
  * Bugs to fix:
  * - making window smaller than or equal to min then expanding/collapsing
- * - collapsing horizontally still shows headers / it pushes the content off the screen but you can still scroll to it
  * - changing sizes highlights the headers
  * - it kinda seizures a bit as it approaches the min height
  * - sometimes the scrolling vertically covers the header, sometimes it doesn't and idk why
